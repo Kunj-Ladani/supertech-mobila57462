@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   {% load static %}
+   {% include 'head.html' %}
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        {% include 'header.html' %}
+    </div>
+    <!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        {% include 'leftbar.html' %}
+        <!-- left menu ends -->
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="/adminapp/">Home</a></li>
+                    <li><a href="#">Order</a></li>
+                </ul>
+            </div>
+
+          
+             <!-- View order -->
+
+<div class="row">
+    <div class="box col-md-12">
+    <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+        <h2><i class="glyphicon glyphicon-user"></i> View Complete Order Details</h2>
+
+        
+    </div>
+    <div class="box-content">
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>User</th>
+        <th>Pincode</th>
+        <th>Address</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Status</th>
+        <th>Created Date</th>
+        <th>Updated Date</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in o_data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td class="center">
+            {{row.u_name}}
+            <br>
+             <span class="label label-info">{{row.u_contact}}</span>
+
+        </td>
+        <td class="center">{{row.o_pincode}}</td>
+        <td class="center">{{row.o_address}}</td>
+        <td class="center">{{row.o_totalquntity}}</td>
+        <td class="center">₹{{row.o_totalprice}}</td>
+        
+        <td class="center">
+    <a href="/adminapp/completeorder?oid={{ row.o_id }}&ostatus={{ row.o_status }}">
+        {% if row.o_status == "Pending" %}
+            <span class="label label-warning">Pending</span>
+        {% elif row.o_status == "Confirm" %}
+            <span class="label label-primary">Confirm</span>
+        {% elif row.o_status == "Complete" %}
+            <span class="label label-success">Complete</span>
+        {% else %}
+            <span class="label label-danger">Cancel</span>
+        
+        {% endif %}
+    </a>
+</td>
+        <td class="center">{{row.o_cdate|date:'Y-m-d H:i:s'}}</td>
+        <td class="center">{{row.o_udate|date:'Y-m-d H:i:s'}}</td>
+        <td class="center">
+                <a class="btn btn-info" href="/adminapp/cart?cart_id={{row.o_id}}">
+                <i class="glyphicon glyphicon-edit icon-white"></i>
+                Order Details
+            </a>
+
+            <a class="btn btn-danger" href="/adminapp/completeorder?o_id={{row.o_id}}" onclick="return confirm('Are You Sure Want To Delete?')">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    <!--/span-->
+
+    </div><!--/row-->
+
+
+            <hr>
+        </div>
+    </div>
+            <footer class="row">
+                {% include 'footer.html' %}
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+{% include 'script.html' %}
+
+</body>
+</html>

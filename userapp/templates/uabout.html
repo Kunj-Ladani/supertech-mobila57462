@@ -1,0 +1,186 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+</head>
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+
+ <div class="axil-about-area about-style-1 axil-section-gap ">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="about-thumbnail">
+                            <div class="thumbnail">
+                                <img src="{% static 'assets/images/about/about-001.webp' %}" style="height: 400px;" alt="About Us">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-6">
+                        <div class="about-content content-right">
+                            <span class="title-highlighter highlighter-primary2"> <i class="far fa-shopping-basket"></i>About Store</span>
+                            <h3 class="title">Your Trusted Mobile Store – Online & In-Store.</h3>
+                            <span class="text-heading">
+                                At Supertech Mobila, we bring you the latest smartphones,
+                                accessories, and mobile solutions — all in one place.
+                                Whether you prefer shopping online or visiting our store,
+                                we ensure a smooth, secure, and satisfying experience 
+                                every time.We believe a mobile phone is more than a
+                                device — it’s your daily companion. That’s why we focus
+                                on quality products, genuine brands, 
+                                and honest pricing.</span>
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <p>
+                                        We help customers discover the latest smartphones and accessories with
+                                        expert guidance, genuine products, and competitive pricing. Our goal is
+                                        to make mobile shopping simple, reliable, and enjoyable.
+                                    </p>
+                                </div>
+                                <div class="col-xl-6">
+                                    <p class="mb--0">
+                                        From flagship devices to budget-friendly mobiles, we offer a smooth
+                                        online and in-store shopping experience with trusted brands and
+                                        dedicated customer support.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+         <div class="about-info-area">
+            <div class="container">
+                <div class="row row--20">
+                    <div class="col-lg-4">
+                        <div class="about-info-box">
+                            <div class="thumb">
+                                <img src="{% static 'assets/images/about/shape-01.png' %}" alt="Shape">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">40,000+ Happy Customer</h6>
+                                <p>Trusted by thousands for genuine mobiles 
+                                    and reliable service.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="about-info-box">
+                            <div class="thumb">
+                                <img src="{% static 'assets/images/about/shape-02.png' %}" alt="Shape">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">16 Years of Experiences</h6>
+                                <p>Deep knowledge of smartphones, accessories,
+                                     and after-sales support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="about-info-box">
+                            <div class="thumb">
+                                <img src="{% static 'assets/images/about/shape-03.png' %}" alt="Shape">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">12 Awards Won</h6>
+                                <p>Competitive pricing with 100% original products.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+        <div class="axil-about-area about-style-2">
+            <div class="container">
+                <div class="row align-items-center mb--80 mb_sm--60">
+                    <div class="col-lg-5">
+                        <div class="about-thumbnail">
+                            <img src="{% static 'assets/images/about/about-002.png' %}" alt="about">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="about-content content-right">
+                           
+                            <h4 class="title">Solutions that work together</h4>
+                            <p>Launch your mobile store quickly with our easy-to-use
+                                online platform — no technical skills required.
+                                Showcase the latest smartphones, accessories, and
+                                offers, and manage everything smoothly from one place.</p>
+                               <p>Connect your in-store sales with online orders, promote
+                            products through social media, and reach more customers faster.
+                                Our system is designed for mobile retailers, ensuring a 
+                                seamless experience both online and offline.</p>
+                            <a href="ucontact" class="axil-btn btn-outline">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-5 order-lg-2">
+                        <div class="about-thumbnail">
+                            <img src="{% static 'assets/images/about/about-003.png' %}" alt="about">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 order-lg-1">
+                        <div class="about-content content-left">
+                            
+                            <h4 class="title">Our Vision & Mission</h4>
+                                <p style="font-weight: 900;">Our Vision </p>
+                                    <p>To become the most trusted mobile store,
+                                        combining technology, affordability, and
+                                        excellent support.
+                                    </p> 
+                               <p style="font-weight: 900;">Our Mission</p>
+                                    <p>To provide genuine mobile products, transparent
+                                        pricing, and reliable customer service — building 
+                                        long-term trust with every customer.
+                                    </p>
+                                        
+                            <a href="ucontact" class="axil-btn btn-outline">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+<br/>
+<br>
+
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+  <footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

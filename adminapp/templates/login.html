@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  {% include 'head.html' %}
+ 
+</head>
+
+<body>
+<div class="ch-container"><!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  {% include 'head.html' %}
+ 
+</head>
+
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+    </script>
+<body>
+<div class="ch-container">
+    <div class="row">
+        
+    <div class="row">
+        <div class="col-md-12 center login-header">
+            <h2>Welcome to Admin Panel</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 center login-header">
+            <img src="{% static 'img/p_logo.jpg' %}" style="width: 120px;height: 120px;margin-top: -44px;border: 2px solid black;border-radius: 50%;" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="well col-md-5 center login-box">
+            <div class="alert alert-info">
+                Please login with your Username and Password.
+            </div>
+            <form class="form-horizontal"  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="clearfix"></div><br>
+
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                        <input type="password" class="form-control" name="password"  id="myInput" placeholder="Password">
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="input-prepend" style="margin-left: -68%;">
+                        <label class="remember" for="remember"><input type="checkbox" onclick="myFunction()" id="remember"> Show Password</label>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <p class="center col-md-5">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </p>
+                </fieldset>
+            </form>
+            {% if msg != "" %}
+            <div class="alert alert-danger">
+                 {{msg}}
+                </div>
+            
+            {% endif %}
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+</div><!--/fluid-row-->
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+{% include 'script.html' %}
+</body>
+</html>
+
+   

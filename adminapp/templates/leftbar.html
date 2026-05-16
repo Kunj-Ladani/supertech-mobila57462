@@ -1,0 +1,49 @@
+{% load static %}
+
+  <div class="col-sm-2 col-lg-2" style="height: 700px;">
+            <div class="sidebar-nav">
+                <div class="nav-canvas">
+                    <div class="nav-sm nav nav-stacked">
+
+                    </div>
+                    <ul class="nav nav-pills nav-stacked main-menu">
+                        <li class="nav-header">Main</li>
+                        <li><a class="ajax-link" href="/adminapp/"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
+                        </li>
+                        <li class="accordion">
+                            <a href="#"><i class="glyphicon glyphicon-plus"></i><span> Order</span></a>
+                            <ul class="nav nav-pills nav-stacked" style="display: none;">
+                                <li><a  href="/adminapp/pendingorder"><i class="glyphicon glyphicon-time blue"></i> Pending Order</a></li>
+                                <li><a href="/adminapp/confirmorder"><i class="glyphicon glyphicon-ok-circle blue"></i> Confirm Order</a></li>
+                                <li><a href="/adminapp/completeorder"><i class="glyphicon glyphicon-check yellow"></i> Complete Order</a></li>
+                                <li><a href="/adminapp/cancelorder"><i class="glyphicon glyphicon-remove-circle red"></i> Cancel Order</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="ajax-link" href="/adminapp/user"><i
+                                    class="glyphicon glyphicon-user"></i><span> User</span></a></li>
+
+                        <li><a class="ajax-link" href="/adminapp/product"><i class="glyphicon glyphicon-tags"></i><span> Product</span></a>
+                        </li>
+                        
+                        <li><a class="ajax-link" href="/adminapp/category"><i class="glyphicon glyphicon-th-list"></i><span> Category</span></a>
+                        </li>
+                        
+                        <li><a class="ajax-link" href="/adminapp/feedback"><i class="glyphicon glyphicon-comment"></i><span> Feedback</span></a>
+                        </li>
+                        <li class="accordion">
+                            <a href="#"><i class="glyphicon glyphicon-plus"></i><span> Reports</span></a>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="/adminapp/orderreport">Order</a></li>
+                                <li><a href="/adminapp/productreport">Product</a></li>
+                                <li><a href="/adminapp/userreport">User</a></li>
+                                
+                            </ul>
+                        </li>
+
+                        <li><a href="/adminapp/logout"><i class="glyphicon glyphicon-lock"></i><span> Logout</span></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>

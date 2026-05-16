@@ -1,0 +1,425 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+</head>
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+        <div class="axil-poster axil-section-gap pb--0">
+            <div class="container">
+                <div class="row g-lg-5 g-4">
+                    <div class="col-lg-6">
+                        <div class="single-poster">
+                            <a href="uproduct">
+                                <img src="{% static 'assets/images/ba1.png' %}" alt="eTrade promotion poster" style="height: 450px;">
+                                <div class="poster-content">
+                                    <div class="inner">
+                                        <!-- <h3 class="title">Premimum <br> Quality.</h3> -->
+                                        
+                                    </div>
+                                </div>
+                                <!-- End .poster-content -->
+                            </a>
+                        </div>
+                        <!-- End .single-poster -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="single-poster">
+                            <a href="uproduct">
+                                <img src="{% static 'assets/images/ba2.png' %}" alt="eTrade promotion poster" style="height: 450px;">
+                                <div class="poster-content content-left">
+                                    <div class="inner">
+                                        <!-- <h3 class="title">Get Exclusive <br> Offer</h3> -->
+                                    </div>
+                                </div>
+                                <!-- End .poster-content -->
+                            </a>
+                        </div>
+                        <!-- End .single-poster -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="axil-categorie-area bg-color-white axil-section-gap pb--0">
+            <style>
+
+            .categrie-product.categrie-product-3 {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+  
+}
+
+/* Soft floating effect */
+.categrie-product.categrie-product-3:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22),
+                0 0 25px rgba(0, 123, 255, 0.35);
+}
+
+/* Glow border */
+.categrie-product.categrie-product-3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: linear-gradient(100deg, rgba(0,123,255,0.5), rgba(0,255,200,0.4)) border-box;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.categrie-product.categrie-product-3:hover::before {
+    opacity: 1;
+}
+
+/* Shiny sweep effect */
+.categrie-product.categrie-product-3::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+  
+}
+
+.categrie-product.categrie-product-3:hover::after {
+    left: 125%;
+}
+.axil-btn.btn-bg-lighter.btn-load-more {
+    position: relative;
+    overflow: hidden;
+   
+    padding: 14px 36px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    transition: all 0.4s ease;
+}
+
+/* Hover lift + glow */
+.axil-btn.btn-bg-lighter.btn-load-more:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25),
+                0 0 22px rgba(0, 123, 255, 0.3);
+}
+
+/* Shine sweep effect */
+.axil-btn.btn-bg-lighter.btn-load-more::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -70%;
+    width: 45%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+    );
+    transform: rotate(25deg);
+    transition: left 0.7s ease;
+}
+
+.axil-btn.btn-bg-lighter.btn-load-more:hover::after {
+    left: 130%;
+}
+
+
+/* ===============================
+   GLOBAL RESPONSIVE FIXES
+================================ */
+
+/* Make cards fully clickable and centered */
+.well.top-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    text-align: center;
+}
+
+/* Icon size responsive */
+.well.top-block i {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Numbers responsive */
+.well.top-block div:last-child {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Prevent overflow on small screens */
+body, .ch-container {
+    overflow-x: hidden;
+}
+
+/* ===============================
+   TABLET (≤ 991px)
+================================ */
+@media (max-width: 991px) {
+
+    #content {
+        padding: 10px;
+    }
+
+    .well.top-block {
+        min-height: 130px;
+    }
+
+    .well.top-block i {
+        font-size: 28px;
+    }
+}
+
+/* ===============================
+   MOBILE (≤ 767px)
+================================ */
+@media (max-width: 767px) {
+
+    /* Stack sidebar & content properly */
+    #content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Reduce card height */
+    .well.top-block {
+        min-height: 120px;
+        padding: 15px;
+    }
+
+    .well.top-block i {
+        font-size: 26px;
+    }
+
+    .well.top-block div {
+        font-size: 14px;
+    }
+
+    .well.top-block div:last-child {
+        font-size: 18px;
+    }
+
+    /* Reduce gap between rows */
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* ===============================
+   EXTRA SMALL DEVICES (≤ 480px)
+================================ */
+@media (max-width: 480px) {
+
+    .well.top-block {
+        min-height: 110px;
+    }
+
+    .well.top-block i {
+        font-size: 24px;
+    }
+
+    .well.top-block div {
+        font-size: 13px;
+    }
+
+    .well.top-block div:last-child {
+        font-size: 16px;
+    }
+}
+
+            </style>
+            <div class="container">
+                <div class="product-area pb--50">
+                    <div class="section-title-wrapper">
+                        <span class="title-highlighter highlighter-secondary"><i class="far fa-shopping-basket"></i>The Categories</span>
+                        <h2 class="title">Browse by Category</h2>
+                    </div>
+                    <div class="categrie-product-activation-3 slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+                        {% for row in cat_data %}
+                        <div class="slick-single-layout slick-slide">
+                            <div class="categrie-product categrie-product-3" data-sal="zoom-out" data-sal-delay="100" data-sal-duration="500">
+                                <a href="uproduct?cat_id={{row.cat_id}}">
+                                    <img class="img-fluid" src="/media/{{row.cat_image}}" alt="product categorie" style="height: 100px;width: 160px;">
+                                    <h6 class="cat-title">{{row.cat_name}}</h6>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                       
+
+                        <!-- End .slick-single-layout -->
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+ <div class="axil-about-area about-style-1 axil-section-gap ">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="about-thumbnail">
+                            <div class="thumbnail">
+                                <img src="{% static 'assets/images/about/about-002.png' %}" alt="About Us"  style="height: 400px;width: 600px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-6">
+                        <div class="about-content content-right">
+                            <span class="title-highlighter highlighter-primary2"> <i class="far fa-shopping-basket"></i>Welcome</span>
+                            <h3 class="title">SUPERTECH MOBILA</h3>
+                            <span class="text-heading">
+
+                                SUPERTECH MOBILA is a trusted
+                                mobile shop dedicated to providing the
+                                latest smartphones and mobile accessories
+                                at the best prices. We focus on offering 100% genuine
+                                products, reliable brands, and excellent customer 
+                                service.
+                                Our goal is to help customers choose the 
+                                right mobile device that fits their needs and budget.
+                                At SUPERTECH MOBILA, every product is carefully
+                                selected to ensure quality, performance, and 
+                                durability. We believe in building long-term
+                                relationships with our customers through honest
+                                pricing, expert guidance, and dependable 
+                                after-sales support. Your satisfaction and trust
+                                are our top priorities.                            </span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+<div class="axil-product-area bg-color-white axil-section-gap">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i> Our Products</span>
+                    <h2 class="title">Explore our Products</h2>
+                </div>
+                <div class="explore-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
+                   
+                    <div class="slick-single-layout">
+                        <div class="row row--15">
+                            {% for row in p_data %}
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="axil-product product-style-one mb--30">
+                                    <div class="thumbnail">
+                                        <a href="uproductdetails?p_id={{row.p_id}}">
+                                            <img src="/media/{{row.p_img1}}" alt="Product Images" style="width: 300px; height: 300px;">
+                                        </a>
+                                        <div class="label-block label-right">
+                                            <div class="product-badget">{{row.discount}}% OFF</div>
+                                        </div>
+                                        <div class="product-hover-action">
+                                            <ul class="cart-action">
+                                                <li class="select-option"><a href="uproductdetails?p_id={{row.p_id}}">Add to Cart</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="inner">
+                                            <h5 class="title" style="height: 50px;"><a href="uproductdetails?p_id={{row.p_id}}">{{row.p_name}}</a></h5>
+                                            <div class="product-price-variant">
+                                                <span class="price current-price" style="color: #28a745; font-size: 25px;">₹{{row.p_price}}</span>
+                                                <span class="price old-price" style="color: #dc3545; font-size: 18px;">₹{{row.p_mrp}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                             <!-- End Single Product  -->
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center mt--20 mt_sm--0">
+                        <a href="uproduct" class="axil-btn btn-bg-lighter btn-load-more">View All Products</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    
+
+        
+ <div class="axil-testimoial-area axil-section-gap bg-vista-white">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="title-highlighter highlighter-secondary"> <i class="fal fa-quote-left"></i>Testimonials</span>
+                    <h2 class="title">Users Feedback</h2>
+                </div>
+                <!-- End .section-title -->
+                <div class="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
+                    {% for row in f_data %}
+                    <div class="slick-single-layout testimonial-style-one">
+                        <div class="review-speech" >
+                            <p>“{{row.f_message}}“</p>
+                        </div>
+                        <div class="media">
+                            <div class="thumbnail">
+                                <img src="/media/user1.png" alt="testimonial image" style="width: 60px;height: 60px;">
+                            </div>
+                            <div class="media-body">
+                                <span class="designation">User</span>
+                                <h6 class="title">{{row.f_name}}</h6>
+                            </div>
+                        </div>
+                        <!-- End .thumbnail -->
+                    </div>
+                    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+
+<br>
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+    <footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

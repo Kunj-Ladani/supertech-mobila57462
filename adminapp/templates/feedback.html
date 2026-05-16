@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   {% load static %}
+   {% include 'head.html' %}
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        {% include 'header.html' %}
+    </div>
+    <!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        {% include 'leftbar.html' %}
+        <!-- left menu ends -->
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="/adminapp/">Home</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+
+            <!-- Add Category -->
+
+         
+            <!-- View Categories -->
+
+<div class="row">
+    <div class="box col-md-12">
+    <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+        <h2><i class="glyphicon glyphicon-user"></i> View Feedback Details</h2>
+
+        
+    </div>
+    <div class="box-content">
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Message</th>
+        <th>Status</th>
+        <th>Created Date</th>
+        <th>Updated Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in f_data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td class="center">{{row.f_name}}</td>
+        <td class="center">{{row.f_contact}}</td>
+        <td class="center">{{row.f_message}}</td>
+        <td class="center">
+            <a href="/adminapp/feedback?fid={{row.f_id}}&fstatus={{row.f_status}}">
+            <span class="label-{% if row.f_status == 'Active' %}success {% else %}danger{% endif %} label label-default">{{row.f_status}}</span>
+            </a>
+        </td>
+        <td class="center">{{row.f_cdate|date:'Y-m-d H:i:s'}}</td>
+        <td class="center">{{row.f_udate|date:'Y-m-d H:i:s'}}</td>
+        
+        <td class="center">
+           
+            
+            <a class="btn btn-danger" href="/adminapp/feedback?f_id={{row.f_id}}" onclick="return confirm('Are You Sure Want To Delete?')">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    <!--/span-->
+
+    </div><!--/row-->
+
+            <hr>
+        </div>
+    </div>
+            <footer class="row">
+                {% include 'footer.html' %}
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+{% include 'script.html' %}
+
+</body>
+</html>

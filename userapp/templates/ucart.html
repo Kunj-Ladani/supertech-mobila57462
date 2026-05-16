@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+</head>
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+
+ <div class="axil-product-cart-area axil-section-gap">
+            <div class="container">
+                <div class="axil-product-cart-wrap">
+                    
+                    <div class="table-responsive">
+                        <table class="table axil-product-table axil-cart-table mb--40">
+                            <thead>
+                                <tr>
+                                    <!-- <th scope="col" class="product-remove"></th> -->
+                                    <th scope="col" class="product-thumbnail">Order ID</th>
+                                    <th scope="col" class="product-thumbnail" style="width: 50%;">Product</th>
+                                   <th scope="col" class="product-subtotal">Price</th>
+                                    <th scope="col" class="product-quantity">Quantity</th>
+                                    <th scope="col" class="product-subtotal">Total</th>
+                                    <!-- <th scope="col" class="product-quantity">Status</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in o_data %}
+                                <tr>
+                                    <!-- <td class="product-remove"><a href="ucart?o_id={{row.o_id}}" class="remove-wishlist"><i class="fa-regular fa-eye"></i></a></td> -->
+                                    <td class="product-thumbnail">#{{row.o_id}}</td>
+                                    <td class="product-thumbnail"><a href="/media/{{row.p_img1}}" target="_blank"><img src="/media/{{row.p_img1}}" style="width: 80px;height: 80px;" alt="Digital Product"></a>
+                                    {{row.p_name}}
+                                    </td>
+                                    
+                                    
+                                    <td class="product-title">₹{{row.c_price}}</td>
+                                    <td class="product-title">{{row.c_quantity}}</td>
+                                    
+                                    <td class="product-title">₹{{row.c_totalprice}}</td>
+                                    <!-- <td class="product-title">{{row.c_status}}</td> -->
+                                    
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+       
+
+
+
+
+<br>
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+       <footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+</head>
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+
+<div class="axil-contact-page-area axil-section-gap">
+            <div class="container">
+                <div class="axil-contact-page">
+                    <div class="row row--30">
+                        <div class="col-lg-8">
+                            <div class="contact-form">
+                                <h3 class="title mb--10">We would love to hear from you.</h3>
+                                <p>If you've got great products your making or looking to work with us then drop us a line.</p>
+                                <form  method="post" enctype="multipart/form-data" class="django-contact-form">
+                                    {% csrf_token %}
+                                    <div class="row row--10">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="contact-name">Name <span>*</span></label>
+                                                <input type="text" name="f_name" placeholder="Your Name" required pattern="[A-Za-z\s]+" title="Please Enter Valid Name.">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="contact-phone">Contact <span>*</span></label>
+                                                <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);"  pattern="[0-9]{10}" title="Ex.9876543210" required name="f_contact" placeholder="Your Contact">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="contact-message">Your Message</label>
+                                                <textarea name="f_message" required cols="1" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group mb--0">
+                                                <button type="submit" class="axil-btn btn-bg-primary">Send Message</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="contact-location mb--40">
+                                <h4 class="title mb--20">Our Store</h4>
+                                <span class="address mb--20"> BHOLABHAI PATEL COLLEGE OF COMPUTER STUDIES BCA BPCCS-BCA Kadi Sarva Vishwavidyalaya, GH Rd, Sector 23, Gandhinagar, Gujarat 382016
+
+</span>
+                                <span class="phone">Phone: +91 7096308000</span>
+                                <span class="email">Email: director.bpccs@gmail.com</span>
+                            </div>
+                            <div class="contact-career mb--40">
+                                <h4 class="title mb--20">Careers</h4>
+                                <p>Instead of buying six things, one that you really like.</p>
+                            </div>
+                            <div class="opening-hour">
+                                <h4 class="title mb--20">Opening Hours:</h4>
+                                <p>Monday to Saturday: 9am - 10pm
+                                    <br> Sundays: Closed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Google Map Area  -->
+                <div class="axil-google-map-wrap axil-section-gap pb--0">
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.076248165514!2d72.65258837561741!3d23.240312279021747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b9bc02e8803%3A0x48d245a8f0271504!2sBholabhai%20Patel%20College%20of%20Computer%20Studies!5e0!3m2!1sen!2sin!4v1768815553771!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Google Map Area  -->
+            </div>
+        </div>
+        
+
+
+
+<br>
+
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+ <footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

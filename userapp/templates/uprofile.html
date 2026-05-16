@@ -1,0 +1,129 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+</head>
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+
+<div class="axil-contact-page-area axil-section-gap">
+            <div class="container">
+                <div class="axil-contact-page">
+                    <div class="row row--30">
+                        <div class="col-lg-8">
+                            <div class="contact-form">
+                                <h3 class="title mb--10">My Profile</h3>
+                                <p>&nbsp;</p>
+                                <form  method="post" enctype="multipart/form-data" class="django-contact-form">
+                                    {% csrf_token %}
+                                    <div class="row row--10">
+                                        
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="contact-name">Name <span>*</span></label>
+                                                <input type="text" name="u_name" value="{{u_data.0.u_name}}"  value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="contact-phone">Contact Number<span>*</span></label>
+                                                <input type="text" name="u_contact" value="{{u_data.0.u_contact}}"  readonly>
+                                            </div>
+                                        </div>
+
+                                        
+
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="contact-message">Address</label>
+                                                <textarea name="u_add" cols="1" rows="2">{{u_data.0.u_address}}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="contact-name">Password <span>*</span></label>
+                                                <input type="text" name="u_password" value="{{u_data.0.u_password}}" id="myInput">
+                                            </div>                                          
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="contact-phone">Upload Your Image<span>*</span></label>
+                                                <input type="file" name="u_img" accept="image/png, image/gif, image/jpeg" style="padding-top: 13px;">
+                                                <input type="hidden" name="old_img" value="{{u_data.0.u_img}}">
+                                            </div>
+                                        </div>
+                                       
+
+                                    
+                                       
+                                        <div class="col-12">
+                                            <div class="form-group mb--0">
+                                                <button type="submit" class="axil-btn btn-bg-primary">Submit</button>
+                                            </div>
+                                        </div>
+
+                                       
+                                
+                                    </div>
+                                </form>
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                           <img src="/media/{{u_data.0.u_img}}" style="border-radius: 10%;width: 350px; height: 400px;" />
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        
+<script>
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+    </script>
+
+
+<br>
+
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+<footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

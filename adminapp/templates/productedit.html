@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   {% load static %}
+   {% include 'head.html' %}
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        {% include 'header.html' %}
+    </div>
+    <!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        {% include 'leftbar.html' %}
+        <!-- left menu ends -->
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="/adminapp/">Home</a></li>
+                    <li><a href="#">Product</a></li>
+                </ul>
+            </div>
+
+            <!-- Add Category -->
+
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well">
+                            <h2><i class="glyphicon glyphicon-edit"></i> Edit Product</h2>
+                        </div>
+
+                        <div class="box-content">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                        <label>Category</label>
+                                        <select  class="form-control" name="cat_id" required>
+                                        {% for catdata in cdata%}
+                                             {% if p_data.0.cat_id  ==  catdata.cat_id  %}
+                                             <option value="{{catdata.cat_id}}" selected>{{catdata.cat_name}}</option>
+                                             {% else %}
+                                             <option value="{{catdata.cat_id}}">{{catdata.cat_name}}</option>
+                                             {% endif %}
+
+                                        {% endfor %}
+                                        </select>
+
+                                </div>
+
+        <!-- Name -->
+                <div class="form-group">
+                        <label>Name</label>
+                           <input type="text" value="{{p_data.0.p_name}}"  class="form-control" name="p_name" placeholder="Enter name" required>
+                </div>
+         <!-- Image -->
+                                <div class="form-group">
+                                    <label>MRP</label>
+                                    <input type="text"  class="form-control" value="{{p_data.0.p_mrp}}" name="p_mrp" placeholder="Enter MRP" required>
+                                 </div>      
+                                 
+                                 <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="text"  class="form-control" value="{{p_data.0.p_price}}" name="p_price" placeholder="Enter Price" required>
+                                 </div>
+
+                                 <div class="form-group">
+                                    <label>Details</label>
+                                    <textarea class="form-control" name="p_details" placeholder="Enter Details" required>{{p_data.0.p_details}}</textarea>
+                                 </div>
+
+                                    <div class="form-group">
+                                        <label>Image 1</label><br>
+                                        <a href="/media/{{p_data.0.p_img1}}" target="_blank">
+                                        <img src="/media/{{p_data.0.p_img1}}" style="border: 1px solid black;" height="100px" width="100px" alt="">
+                                        <br><br>  </a>
+                                        <input type="hidden" name="old_img1"  value="{{p_data.0.p_img1}}">
+                                        <input type="file" class="form-control" name="p_img1">
+                                    </div>
+
+                                        <div class="form-group">
+                                            
+                                            <label>Image 2</label><br>
+                                            <a href="/media/{{p_data.0.p_img2}}" target="_blank">
+                                            <img src="/media/{{p_data.0.p_img2}}" style="border: 1px solid black;" height="100px" width="100px" alt="">
+                                            <br><br>  </a>
+                                            <input type="hidden" name="old_img2"  value="{{p_data.0.p_img2}}">
+                                            <input type="file" class="form-control" name="p_img2">
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label>Image 3</label> <br>
+                                                <a href="/media/{{p_data.0.p_img3}}" target="_blank">
+                                                <img src="/media/{{p_data.0.p_img3}}" style="border: 1px solid black;" height="100px" width="100px" alt="">
+                                                <br><br>  </a>
+                                                <input type="hidden" name="old_img3"  value="{{p_data.0.p_img3}}">
+                                                <input type="file" class="form-control" name="p_img3">
+                                        </div>
+                               
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select name="p_status"  class="form-control">
+                                                {% if p_data.0.p_status == 'Active' %}
+                                                <option value="Active" selected>Active</option>
+                                                <option value="Deactive">Deactive</option>
+                                                {% else %}
+                                                <option value="Active" >Active</option>
+                                                <option value="Deactive" selected>Deactive</option>
+                                                {% endif %}
+                                            </select>
+                                            
+                                        </div>
+
+                                        <div class="form-group">
+                                    <label>Descleminar</label>
+                                    <textarea class="form-control" name="p_descleminar" placeholder="Enter Descleminar" required>{{p_data.0.p_descleminar}}</textarea>
+                                 </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Change
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+   
+
+            <hr>
+            </div>
+    </div>
+            <footer class="row">
+                {% include 'footer.html' %}
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+{% include 'script.html' %}
+
+</body>
+</html>

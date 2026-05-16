@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   {% load static %}
+   {% include 'head.html' %}
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        {% include 'header.html' %}
+    </div>
+    <!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        {% include 'leftbar.html' %}
+        <!-- left menu ends -->
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="/adminapp/">Home</a></li>
+                    <li><a href="#">User</a></li>
+                </ul>
+            </div>
+<script type="text/javascript">
+
+    function sprint() { 
+        var divToPrint = document.getElementById('datatable');
+        var htmlToPrint = '<style type="text/css"> table,table th, table td { border:1px solid #000; border-collapse: collapse; } </style>';
+        htmlToPrint += divToPrint.outerHTML;
+        newWin = window.open("");
+        newWin.document.write(htmlToPrint);
+        newWin.print();
+        newWin.close();
+        //newWin.window.print();
+     }
+</script> 
+  
+             <!-- View Order -->
+
+<div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-edit"></i> Generate Report</h2>
+
+                    
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col-md-3"> 
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date"  class="form-control" name="s_date" placeholder="Enter name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-3"> 
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date"  class="form-control" name="e_date" placeholder="Enter name" required>
+                            </div>
+                        </div>
+                        
+                       
+                        <div class="col-md-3"> 
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Generate</button>
+                                 <button type="submit" class="btn btn-primary" style="margin-top: 25px;" onclick="sprint('datatable')">Print</button>`
+                            </div>
+                        </div>
+                    </div>
+
+                        
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <!--/span-->
+    <!--/row-->
+
+<div class="row">
+    <div class="box col-md-12">
+    <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+        <h2><i class="glyphicon glyphicon-user"></i> View User Report  {% if request.POST.s_date != None %} ({{request.POST.s_date}} to {{request.POST.e_date}}) {% endif %}</h2>
+    </div>
+    <div class="box-content">
+    <table id="datatable" class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Image</th>
+        <th>Password</th>
+        <th>Status</th>
+        <th>Created Date</th>
+        <th>Updated Date</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in u_data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td class="center">{{row.u_name}}</td>
+        <td class="center">{{row.u_contact}}</td>
+        <td class="center">{{row.u_address}}</td>
+        <td class="center"><a href="/media/{{row.u_img}}" target="_blank"><img src="/media/{{row.u_img}}" height="50px" width="50px" alt=""></a></td>
+       <td class="center">{{row.u_password}}</td>
+        <td class="center">
+          <span class="label-{% if row.u_status == 'Active' %}success {% else %}danger{% endif %} label label-default">{{row.u_status}}</span>
+        </td>
+        <td class="center">{{row.u_cdate|date:'Y-m-d H:i:s'}}</td>
+        <td class="center">{{row.u_udate|date:'Y-m-d H:i:s'}}</td>
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    <!--/span-->
+
+    </div><!--/row-->
+
+
+            <hr>
+        </div>
+    </div>
+            <footer class="row">
+                {% include 'footer.html' %}
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+{% include 'script.html' %}
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+   
+</head>
+
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+
+
+<div class="axil-shop-area axil-section-gap bg-color-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        
+                     <div class="axil-shop-sidebar">
+                            <div class="d-lg-none">
+                                <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
+                            </div>
+                         
+                            <div class="toggle-list product-categories active">
+                                <h6 class="title">CATEGORIES</h6>
+                                <div class="shop-submenu">
+                                    <ul>
+                                       
+                                        {% for cdata in c_data %}
+                                        <li class="{% if request.GET.cat_id == cdata.cat_id|stringformat:'s' %}current-cat{% endif %}">
+                                            <a href="uproduct?cat_id={{ cdata.cat_id }}">
+                                                {{ cdata.cat_name }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="toggle-list product-categories active">
+                                <img src="/media/sam -s24-2.webp" alt="" style="height: 500px;">
+
+                            </div>
+                            
+                        </div>
+
+                        <!-- End .axil-shop-sidebar -->
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="axil-shop-top mb--40">
+                                    
+                                    <div class="d-lg-none">
+                                        <button class="product-filter-mobile filter-toggle"><i class="fas fa-filter"></i> FILTER</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .row -->
+                        <div class="row row--15">
+                            {% for row in p_data %}
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="axil-product product-style-one mb--30">
+                                    <div class="thumbnail">
+                                        <a href="uproductdetails?p_id={{row.p_id}}">
+                                            <img src="/media/{{row.p_img1}}" alt="Product Images" style="width: 300px; height: 300px;">
+                                        </a>
+                                        <div class="label-block label-right">
+                                            <div class="product-badget">{{row.discount}}% OFF</div>
+                                        </div>
+                                        <div class="product-hover-action">
+                                            <ul class="cart-action">
+                                                <li class="select-option"><a href="uproductdetails?p_id={{row.p_id}}">Add to Cart</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="inner">
+                                            <h5 class="title" style="height: 50px;"><a href="uproductdetails?p_id={{row.p_id}}">{{row.p_name}}</a></h5>
+                                            <div class="product-price-variant">
+                                                <span class="price current-price" style="color: #28a745; font-size: 25px;">₹{{row.p_price}}</span>
+                                                <span class="price old-price" style="color: #dc3545; font-size: 18px;">₹{{row.p_mrp}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                             <!-- End Single Product  -->
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- End .container -->
+        </div>
+        
+
+
+
+<br>
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+       <footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

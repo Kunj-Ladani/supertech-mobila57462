@@ -1,0 +1,95 @@
+{% load static %}
+
+<div class="header-top-campaign">
+            <div class="container position-relative">
+                <div class="campaign-content">
+                    <p>Open Doors To A World Of Handycraft <a href="uproduct">Discover More</a></p>
+                </div>
+            </div>
+            <button class="remove-campaign"><i class="fal fa-times"></i></button>
+        </div>
+        <div class="axil-header-top">
+            <div class="container">
+              
+            </div>
+        </div>
+        <!-- Start Mainmenu Area  -->
+        <div id="axil-sticky-placeholder"></div>
+        <div class="axil-mainmenu">
+            <div class="container">
+                <div class="header-navbar" style="background-color:#fce4dc;">
+                    <div class="header-brand">
+                        <a href="/" class="logo logo-dark">
+                            <img src="{% static 'assets/images/p_logo.jpg' %}" alt="Site Logo" style="height: 100px;width: 100px; border-radius: 50%;">
+                        </a>
+                        <a href="/" class="logo logo-light">
+                            <img src="{% static 'assets/images/logo.png' %}" alt="Site Logo" style="height: 100px;width: 100px;">
+                        </a>
+                    </div>
+                    <div class="header-main-nav">
+                        <!-- Start Mainmanu Nav -->
+                        <nav class="mainmenu-nav">
+                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
+                            <div class="mobile-nav-brand">
+                                <a href="/" class="logo">
+                                    <img src="{% static 'assets/images/logo.png' %}" alt="Site Logo" style="height: 100px;width: 100px;">
+                                </a>
+                            </div>
+                            {% if request.session.uid == None %}
+                            <ul class="mainmenu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="usignup?verify=number">Sign Up</a></li>
+                                <li><a href="usignin">Sign In</a></li>
+                                <li><a href="uproduct">Product</a></li>
+                                
+                                
+                                <li><a href="uabout">About Us</a></li>
+                                
+                                <li><a href="ucontact">Contact Us</a></li>
+                            </ul>
+                            {% else %}
+                            <ul class="mainmenu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="uprofile">Profile</a></li>
+                                <li><a href="uproduct">Product</a></li>
+                                <li><a href="umyorder">My Order</a></li>
+                                <li><a href="umycart">My Cart</a></li>
+                                        
+                                   
+                              
+                                <li><a href="uabout">About Us</a></li>
+                                
+                                <li><a href="ucontact">Contact Us</a></li>
+                                
+                                <li><a href="ulogout">Logout</a></li>
+                            </ul>
+                            {% endif %}
+                        </nav>
+                        <!-- End Mainmanu Nav -->
+                    </div>
+                    <div class="header-action">
+                        <ul class="action-list">
+                            {% if request.session.uid == None %}
+                            <li class="shopping-cart">
+
+                                <a href="usignin" class="">
+                                    
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="shopping-cart">
+
+                                <a href="umycart" class="">
+                                    
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu Area -->

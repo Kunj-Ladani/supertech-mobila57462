@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   {% load static %}
+   {% include 'head.html' %}
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        {% include 'header.html' %}
+    </div>
+    <!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        {% include 'leftbar.html' %}
+        <!-- left menu ends -->
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="/adminapp/">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                </ul>
+            </div>
+
+            <!-- Add Category -->
+
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well">
+                            <h2><i class="glyphicon glyphicon-edit"></i> Edit Category</h2>
+                        </div>
+
+                        <div class="box-content">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+        <!-- Name -->
+                <div class="form-group">
+                        <label>Name</label>
+                           <input type="text" value="{{c_data.0.cat_name}}"  class="form-control" name="cat_name" placeholder="Enter name" required>
+                </div>
+         <!-- Image -->
+                 <div class="form-group">
+                        <label>Image</label> <br>
+                        <img src="/media/{{c_data.0.cat_image}}" style="border: 1px solid black;" height="100px" width="100px" alt="">
+                           <br><br>  
+                           <input type="hidden" name="old_img"  value="{{c_data.0.cat_image}}">
+                           <input type="file" class="form-control" name="cat_image">
+                  </div>
+                               
+
+        <!-- Status -->
+                
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="cat_status"  class="form-control">
+                            {% if c_data.0.cat_status == 'Active' %}
+                            <option value="Active" selected>Active</option>
+                            <option value="Deactive">Deactive</option>
+                            {% else %}
+                            <option value="Active" >Active</option>
+                            <option value="Deactive" selected>Deactive</option>
+                            {% endif %}
+                        </select>
+                           
+                    </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Change
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+   
+
+            <hr>
+            </div>
+        </div>
+            <footer class="row">
+                {% include 'footer.html' %}
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+{% include 'script.html' %}
+
+</body>
+</html>

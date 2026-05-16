@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% load static %}
+    {% include 'uhead.html' %}
+</head>
+
+
+<body class="sticky-header newsletter-popup-modal">
+
+   
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        {% include 'uheader.html' %}
+    </header>
+
+    <main class="main-wrapper">
+        {% if request.path == '/' %}
+        {% include 'uslider.html' %}
+        {% else %}
+        {% include 'ubanner.html' %}
+        {% endif %}
+
+<!-- Start -->
+
+<div class="axil-privacy-area axil-section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="axil-privacy-policy">
+
+                    <h4 class="title">Introduction</h4>
+                    <p>
+                        Welcome to <strong>Super Tech Mobile Shop</strong>. By visiting our store, website, or
+                        purchasing our products and services, you agree to the following Terms & Conditions.
+                        Please read them carefully before making a purchase.
+                    </p>
+
+                    <h4 class="title">Nature of Products</h4>
+                    <p>
+                        Super Tech Mobile Shop sells 100% genuine and brand-new mobile phones, accessories,
+                        and electronic products. Product images are for reference only; actual products
+                        may vary slightly due to brand packaging or updates.
+                    </p>
+
+                    <h4 class="title">Pricing</h4>
+                    <ul>
+                        <li>All prices are listed in Indian Rupees (INR).</li>
+                        <li>Prices are subject to change without prior notice.</li>
+                        <li>GST and other applicable taxes are included/excluded as mentioned.</li>
+                        <li>Offers and discounts are valid for a limited time only.</li>
+                    </ul>
+
+                    <h4 class="title">Orders & Payments</h4>
+                    <ul>
+                        <li>Orders are confirmed only after full payment is received.</li>
+                        <li>Accepted payment methods include UPI, Cash, Debit/Credit Card, Net Banking, and EMI (if available).</li>
+                        <li>We reserve the right to cancel any order due to stock unavailability or pricing errors.</li>
+                    </ul>
+
+                    <h4 class="title">Warranty & Brand Policies</h4>
+                    <p>
+                        All mobile phones and accessories are covered under manufacturer/brand warranty only.
+                        Super Tech Mobile Shop is not responsible for delays or decisions made by authorized
+                        service centers. Physical or liquid damage may void the warranty.
+                    </p>
+
+                    <h4 class="title">Returns, Exchanges & Refunds</h4>
+                    <p class="mb--20">
+                        Returns or exchanges are accepted only in case of manufacturing defects,
+                        as per brand policy.
+                    </p>
+                    <p class="mb--20">
+                        Opened, used, or damaged products are not eligible for return or refund.
+                    </p>
+                    <p>
+                        Approved refunds will be processed through the original payment method.
+                    </p>
+
+                    <h4 class="title">Damaged or Incorrect Products</h4>
+                    <p class="mb--20">
+                        If you receive a damaged or incorrect product, please contact us within
+                        24 hours of purchase/delivery with bill and photo/video proof.
+                    </p>
+
+                    <h4 class="title">Accessories & Services</h4>
+                    <p>
+                        Accessories once sold cannot be returned or exchanged. Software services,
+                        data transfer, and repairs are provided on a best-effort basis.
+                        Customers are advised to back up personal data before servicing.
+                    </p>
+
+                    <h4 class="title">User Responsibilities</h4>
+                    <p>
+                        Customers must provide accurate information during purchase and verify
+                        product details before confirming the order.
+                    </p>
+
+                    <h4 class="title">Intellectual Property</h4>
+                    <p>
+                        All logos, images, and content related to Super Tech Mobile Shop are protected
+                        and may not be copied or reused without written permission.
+                    </p>
+
+                    <h4 class="title">Changes to Terms</h4>
+                    <p>
+                        Super Tech Mobile Shop reserves the right to modify these Terms & Conditions
+                        at any time without prior notice.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+<br>
+
+<!-- End -->
+       
+    </main>
+
+
+    <!-- Start Footer Area  -->
+      <footer class="axil-footer-area footer-style-2" style="background-color: #fce4dc;margin-top: -27px;">
+         {% include 'ufooter.html' %}
+    </footer>
+   
+     {% include 'uscript.html' %}
+</body>
+</html>

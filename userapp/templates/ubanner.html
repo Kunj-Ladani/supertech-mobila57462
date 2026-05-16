@@ -1,0 +1,85 @@
+{% load static %}
+
+ <div class="axil-breadcrumb-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="inner">
+                            <ul class="axil-breadcrumb">
+                                <li class="axil-breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="separator"></li>
+                                {% if request.path == '/ucontact' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Contact Us</li>
+                                {% elif request.path == '/uabout' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">About Us</li>
+                                {% elif request.path == '/usignup' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Sign Up</li>
+                                {% elif request.path == '/usignin' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Sign In</li>
+                                {% elif request.path == '/ucart' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Order Details</li>
+                                {% elif request.path == '/umycart' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">My Cart</li>
+                                {% elif request.path == '/uforgotpassword' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Forgot Password</li>
+                                {% elif request.path == '/umyorder' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">My Order</li>
+                                {% elif request.path == '/uproduct' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Product</li>
+                                {% elif request.path == '/uproductdetails' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Product Details</li>
+                                {% elif request.path == '/uprofile' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Profile</li>
+                                {% elif request.path == '/uterms' %}
+                                <li class="axil-breadcrumb-item active" aria-current="page">Terms & Conditions</li>
+                                
+                                
+                                {% endif %}
+                            </ul>
+                            {% if request.path == '/ucontact' %}
+                            <h1 class="title">Contact Us</h1>
+                            {% elif request.path == '/uabout' %}
+                            <h1 class="title">About Us</h1>
+                            {% elif request.path == '/usignup' %}
+                            <h1 class="title">User Sign Up</h1>
+                             {% elif request.path == '/usignin' %}
+                              <h1 class="title">User Sign In</h1>
+                              {% elif request.path == '/ucart' %}
+                              <h1 class="title">Order Details</h1>
+                              {% elif request.path == '/umycart' %}
+                              <h1 class="title">My Cart</h1>
+                              {% elif request.path == '/uforgotpassword' %}
+                              <h1 class="title">Forgot Password</h1>
+                              {% elif request.path == '/umyorder' %}
+                              <h1 class="title">My Order</h1>
+                              {% elif request.path == '/uproduct' %}
+                              <h1 class="title">Product</h1>
+                              {% elif request.path == '/uproductdetails' %}
+                              <h1 class="title">Product Details</h1>
+                              {% elif request.path == '/uprofile' %}
+                              <h1 class="title">Profile</h1>
+                              {% elif request.path == '/uterms' %}
+                              <h1 class="title">Terms & Conditions</h1>
+                              {% elif request.path == '/usignin' %}
+                              <h1 class="title">User Sign In</h1>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-6 col-md-4">
+                        <div class="inner">
+                            <div class="bradcrumb-thumb">
+                                <img src="{% static 'assets/images/product/product-45.png' %}" alt="Image">
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-lg-6 col-md-4">
+                        <div class="inner">
+                            <div class="bradcrumb-thumb">
+                                <img src="{% static 'assets/images/product/product-45.png' %}" alt="Image">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+       

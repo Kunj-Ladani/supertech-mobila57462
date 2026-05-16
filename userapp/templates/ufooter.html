@@ -1,0 +1,179 @@
+{% load static %}
+ <div class="service-area">
+        <div class="container">
+            <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'assets/images/icons/service1.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">Fast &amp; Secure Delivery</h6>
+                            <p>Tell about your service.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'assets/images/icons/service2.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">Money Back Guarantee</h6>
+                            <p>Within 10 days.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'assets/images/icons/service3.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">24 Hour Return Policy</h6>
+                            <p>No question ask.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'assets/images/icons/service4.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">Pro Quality Support</h6>
+                            <p>24/7 Live support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Start Footer Top Area  -->
+ <footer class="axil-footer-area footer-style-2" style="text-align: center;">
+        <div class="footer-top separator-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Single Widget  -->
+                  <div class="col-lg-3 col-sm-6">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">SUPERTECH MOBILA</h5>
+                            <div class="inner">
+                              
+                                <span>At Supertech Mobila, discover the latest mobiles and accessories with trusted quality and honest prices.
+We offer 100% genuine products from reliable brands.
+Enjoy a smooth shopping experience, online or in-store.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                    <!-- Start Single Widget  -->
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">Account</h5>
+                             {% if request.session.uid == None %}
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="usignup?verify=number"> Sign Up</a></li>
+                                    <li><a href="usignin">Sign In </a></li>
+                                    <li><a href="uproduct">Product</a></li>
+                                    <li><a href="usignin">My Cart</a></li>
+                                    
+                                </ul>
+                            </div>
+                            {% else %}
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="uprofile"> Profile</a></li>
+                                    <li><a href="umycart">My Cart </a></li>
+                                    <li><a href="umyorder">My Order</a></li>
+                                    <li><a href="ulogout">Logout</a></li>
+                                    
+                                    
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                    <!-- Start Single Widget  -->
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">Quick Link</h5>
+                            {% if request.session.uid == None %}
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="uabout">About Us</a></li>
+                                    <li><a href="ucontact">Contact Us</a></li>
+                                    <li><a href="uterms">Terms & Conditions</a></li>
+                                    
+                                    
+                                </ul>
+                            </div>
+                            {% else %}
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="uabout">About Us</a></li>
+                                    <li><a href="ucontact">Contact Us</a></li>
+                                    <li><a href="uterms">Terms & Conditions</a></li>
+                                    
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                    <!-- Start Single Widget  -->
+                    
+                      <div class="col-lg-3 col-sm-6">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">Support</h5>
+                            <!-- <div class="logo mb--30">
+                            <a href="index.html">
+                                <img class="light-logo" src="{% static 'assets/images/logo/logo.png' %}" alt="Logo Images">
+                            </a>
+                        </div> -->
+                            <div class="inner">
+                                <p>Kadi Sarva Vishwavidyalaya, GH Rd, Sector 23, Gandhinagar, Gujarat 382016
+                                </p>
+                                <ul class="support-list-item">
+                                    <li><a href="mailto:director.bpccs@gmail.com"><i class="fal fa-envelope-open"></i> director.bpccs@gmail.com</a></li>
+                                    <li><a href="tel:+91 7096308000"><i class="fal fa-phone-alt"></i> +91 7096308000</a></li>
+                                    <!-- <li><i class="fal fa-map-marker-alt"></i> 685 Market Street,  <br> Las Vegas, LA 95820, <br> United States.</li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Top Area  -->
+        <!-- Start Copyright Area  -->
+        <div class="copyright-area copyright-default separator-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-4">
+                        <div class="social-share">
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                           
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="copyright-left d-flex flex-wrap justify-content-center">
+                            <ul class="quick-link">
+                                <li>© 2025-26. All rights reserved by <a target="_blank" href="#">SUPERTECH MOBILA</a>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area  -->
+    </footer>

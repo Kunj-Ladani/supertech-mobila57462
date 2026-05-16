@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   {% load static %}
+   {% include 'head.html' %}
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        {% include 'header.html' %}
+    </div>
+    <!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        {% include 'leftbar.html' %}
+        <!-- left menu ends -->
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="/adminapp/">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                </ul>
+            </div>
+
+            <!-- Add Category -->
+
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well">
+                            <h2><i class="glyphicon glyphicon-edit"></i> Add Category</h2>
+                        </div>
+
+                        <div class="box-content">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+        <!-- Name -->
+                <div class="form-group">
+                        <label>Name</label>
+                           <input type="text"  class="form-control" name="cat_name" placeholder="Enter name" required>
+                </div>
+         <!-- Image -->
+                 <div class="form-group">
+                        <label>Image</label>
+                             <input type="file" class="form-control" name="cat_image">
+                  </div>
+                               
+
+        <!-- Status -->
+                
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="cat_status"  class="form-control">
+                            <option value="Active">Active</option>
+                            <option value="Deactive">Deactive</option>
+                        </select>
+                           
+                    </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Categories -->
+
+<div class="row">
+    <div class="box col-md-12">
+    <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+        <h2><i class="glyphicon glyphicon-user"></i> View Category Details</h2>
+
+        
+    </div>
+    <div class="box-content">
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Status</th>
+        <th>Created Date</th>
+        <th>Updated Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in c_data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td class="center">{{row.cat_name}}</td>
+        <td class="center"><a href="/media/{{row.cat_image}}" target="_blank"><img src="/media/{{row.cat_image}}" height="50px" width="50px" alt=""></a></td>
+        <td class="center">
+
+            <span class="label-{% if row.cat_status == 'Active' %}success {% else %}danger{% endif %} label label-default">{{row.cat_status}}</span>
+        </td>
+        <td class="center">{{row.cat_cdate|date:'Y-m-d H:i:s'}}</td>
+        <td class="center">{{row.cat_udate|date:'Y-m-d H:i:s'}}</td>
+        <td class="center">
+           
+            <a class="btn btn-info" href="/adminapp/categoryedit?cat_id={{row.cat_id}}">
+                <i class="glyphicon glyphicon-edit icon-white"></i>
+                Edit
+            </a>
+            <a class="btn btn-danger" href="/adminapp/category?cat_id={{row.cat_id}}" onclick="return confirm('Are You Sure Want To Delete?')">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    <!--/span-->
+
+    </div><!--/row-->
+
+            <hr>
+        </div>
+    </div>
+            <footer class="row">
+                {% include 'footer.html' %}
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+{% include 'script.html' %}
+
+</body>
+</html>

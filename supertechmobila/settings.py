@@ -30,9 +30,9 @@ BASE_DIR_PATH = BASE_DIR
 SECRET_KEY = 'aw8%-t3a@!yebx)u+eu*!mhea#j!(je=t4lzs7dp4g(9q54@%0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # =========================
 # ADDED FOR ONLINE HOSTING
